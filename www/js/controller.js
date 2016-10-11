@@ -40,7 +40,7 @@ angular.module("readytoemployee.controllers",[])
 .controller('browseCotroller',function($scope,$cordovaSQLite){
 	console.log('in browseCotroller ctrl');
 	alert(localStorage.getItem("ready-name"));
-	/*var db = $cordovaSQLite.openDB({name:"readytoemployee.db"});
+	var db = $cordovaSQLite.openDB({name:"readytoemployee.db"});
 	//var db = $cordovaSQLite.openDB({name:"readytoemployee.db",bgType:1});
 	$cordovaSQLite.execute(db,"CREATE TABLE IF NOT EXISTS users(id integer AUTOINCREMENT primary key,name text,email text,age integer)");
 	var query = "INSERT INTO users(name,email,age) VALUES (?,?)";
@@ -60,5 +60,5 @@ angular.module("readytoemployee.controllers",[])
 	},function(error){
 		alert("not inserted");
 	});
-	console.info("db is:"+db);*/
+	console.info("db is:"+db);
 })
