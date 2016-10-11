@@ -23,7 +23,8 @@ angular.module('readytoemployee', ['ionic','ngCordova','readytoemployee.controll
     }
   });
   localStorage.setItem("ready-name", "Jitendra");
-
+/*  db = $cordovaSQLite.openDB({name:'readytoemployee.db'});
+  $cordovaSQLite.execute(db,"CREATE TABLE IF NOT EXISTS users(id integer AUTOINCREMENT primary key,name text,email text,age integer)");*/
 })
 .config(function($stateProvider,$urlRouterProvider){
   $stateProvider

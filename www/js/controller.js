@@ -63,4 +63,31 @@ angular.module("readytoemployee.controllers",[])
 	});
 	console.info("db is:"+db);
 	};
+
+	$scope.pressed = function(firstname, lastname) {
+        var query = "INSERT INTO people (firstname, lastname) VALUES (?,?)";
+        $cordovaSQLite.execute(db, query, [firstname, lastname]).then(function(res) {
+            console.log("INSERT ID -> " + res.insertId);
+            alert("INSERT ID -> " + res.insertId);
+        }, function (err) {
+            console.error(err);
+            alert("failed in 2_1");
+        });
+    }
+ 
+    $scope.pressed2 = function(lastname) {
+        var query = "SELECT firstname, lastname FROM people WHERE lastname = ?";
+        $cordovaSQLite.execute(db, query, [lastname]).then(function(res) {
+            if(res.rows.length > 0) {
+                console.log("SELECTED -> " + res.rows.item(0).firstname + " " + res.rows.item(0).lastname);
+                alert("SELECTED -> " + res.rows.item(0).firstname + " " + res.rows.item(0).lastname);
+            } else {
+                console.log("No results found");
+                alert("no records in 2_2");
+            }
+        }, function (err) {
+            console.error(err);
+            alert("failed in 2_2");
+        });
+    }
 })
