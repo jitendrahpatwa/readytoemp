@@ -42,7 +42,7 @@ angular.module("readytoemployee.controllers",[])
 	alert(localStorage.getItem("ready-name"));
 	var db = $cordovaSQLite.openDB({name:"readytoemployee.db"});
 	//var db = $cordovaSQLite.openDB({name:"readytoemployee.db",bgType:1});
-	$cordovaSQLite.execute(db,"CREATE TABLE IF NOT EXISTS users(id integer AUTOINCREMENT primary key,name text,email text,age integer)");
+	$cordovaSQLite.execute(db,"CREATE TABLE IF NOT EXISTS users(id integer primary key AUTOINCREMENT,name text,email text,age integer)");
 	var query = "INSERT INTO users(name,email,age) VALUES (?,?)";
 	$cordovaSQLite.execute(db,query,['devendra','devendra.ahirwar3@gmail.com','23'])
 	.then(function(success){
