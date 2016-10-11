@@ -6,7 +6,7 @@
 var db = null;
 angular.module('readytoemployee', ['ionic','ngCordova','readytoemployee.controllers'])
 
-.run(function($ionicPlatform,$cordovaSQLite) {
+.run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
     if(window.cordova && window.cordova.plugins.Keyboard) {
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -23,8 +23,7 @@ angular.module('readytoemployee', ['ionic','ngCordova','readytoemployee.controll
     }
   });
   localStorage.setItem("ready-name", "Jitendra");
-  db = $cordovaSQLite.openDB({name:'readytoemployee.db'});
-  $cordovaSQLite.execute(db,"CREATE TABLE IF NOT EXISTS users(id integer AUTOINCREMENT primary key,name text,email text,age integer)");
+
 })
 .config(function($stateProvider,$urlRouterProvider){
   $stateProvider
